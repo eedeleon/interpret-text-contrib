@@ -2,7 +2,10 @@ from typing import Iterable, Any, Optional, Union, Dict
 
 import numpy as np
 import pandas as pd
+
 import torch
+from transformers import BertForSequenceClassification
+
 from interpret_text.experimental.common.base_explainer import BaseTextExplainer
 from interpret_text.experimental.common.model_config.introspective_rationale_model_config import IntrospectiveRationaleModelConfig
 from interpret_text.experimental.common.model_config.model_config_constants import get_bert_default_config, get_rnn_default_config, \
@@ -11,11 +14,12 @@ from interpret_text.experimental.common.preprocessor.bert_preprocessor import Be
 from interpret_text.experimental.common.preprocessor.glove_preprocessor import GlovePreprocessor
 from interpret_text.experimental.common.utils_classical import plot_local_imp
 from interpret_text.experimental.common.utils_introspective_rationale import generate_data
-from interpret_text.experimental.explanation.explanation import _create_local_explanation
-from interpret_text.experimental.introspective_rationale.introspective_rationale_components import ClassifierWrapper, \
+
+from interpret_text.experimental.explanation import _create_local_explanation
+
+from .components import ClassifierWrapper, \
     ClassifierModule, IntrospectionGeneratorModule
-from interpret_text.experimental.introspective_rationale.introspective_rationale_model import IntrospectiveRationaleModel
-from transformers import BertForSequenceClassification
+from .model import IntrospectiveRationaleModel
 
 CLASSIFIER_TYPE_BERT = "BERT"
 CLASSIFIER_TYPE_BERT_RNN = "BERT_RNN"

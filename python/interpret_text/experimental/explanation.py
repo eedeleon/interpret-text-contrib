@@ -9,7 +9,7 @@ import uuid
 
 from interpret_community.common.explanation_utils import _sort_values, _order_imp
 from interpret_community.common.constants import Dynamic, ExplanationParams, ExplainParams
-from interpret_community.explanation.explanation import (
+from interpret_community.explanation import (
     LocalExplanation,
     ExpectedValuesMixin,
     ClassesMixin,
